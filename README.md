@@ -76,6 +76,9 @@ Use a Live Server in VSCode or simply load up the HTML file to run the app.
 | Frontend | HTML, CSS, JavaScript |
 | Backend | PHP, Python |
 
+## License
+This project is licensed under the Apache License 2.0.
+
 ## Author
 
 Made by [@SadraMohtadi](https://github.com/sadramohtadi)
