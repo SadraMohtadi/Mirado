@@ -7,9 +7,12 @@ Mirado lets users photograph any product to instantly get an AI-powered summary 
 
 - **Sorting algorithms** — Using frontend algorithms, the app finds the best results to display
 - **Preference analysis** — The app has a dedicated ```preferenceEngine.js``` file which houses all the functions to learn what the user prefers and what they like to see
+- **Object tracking** — Mirado features an object tracking system to help the app and the user know what they're looking for. It can be found in the ```objectTracking.js``` file
+- **Camera color correction** — Mirado also has a built in camera color correction algorithm which helps eliminate glare and perfect saturation and gamma so the object present in the camera can be thoroughly detailed. It can also be found in the ```objectTracking.js``` file.
 - **Image Recognition** — Take a picture of any product and Mirado identifies it
 - **AI Summaries** — Get a concise, intelligent breakdown of the product
 - **Purchase Links** — Find out where to buy it, powered by SerpAPI
+- **Useful Libraries** — Mirado has a lot of libraries that are made from scratch, such ```quoteBubble.js```, ```themes.js```, or ```inAppNotifications.js```
 
 ## Prerequisites
 
