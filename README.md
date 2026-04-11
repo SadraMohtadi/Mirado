@@ -1,4 +1,4 @@
-# 🛍️ Mirado 0.6
+# 🛍️ Mirado 0.6 - OSS 
 
 Mirado lets users photograph any product to instantly get an AI-powered summary and discover where to buy it.
 
