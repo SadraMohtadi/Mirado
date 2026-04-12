@@ -30,7 +30,7 @@ cd mirado
 ```
 
 ### 2. Configure your API key
-x
+
 Open `scripts/config.js` and replace the placeholder with your SerpAPI key:
 
 ```javascript
