@@ -38,7 +38,6 @@ const SERP_API = '<YOUR_SERP_API_KEY>';
 ```
 
 ### 3. Start the AI servers
-
 Navigate to the `scripts/` folder and run either or both depending on which features you need:
 
 **Product summarization:**
@@ -60,6 +59,11 @@ Use a Live Server in VSCode or simply open the HTML file to run the app.
 ### 5. Change the AI Server parameter
 
 On the bottom of the app, tap on NOT CONFIGURED and put in the IP address provided by the Python code after running it.
+
+![step2](readme_assets/part2.png)<br>
+![step3](readme_assets/part3.png)<br>
+![step4](readme_assets/part4.png)<br>
+![step5](readme_assets/part5.png)<br>
 
 ## Roadmap
 - Improving result accuracy
