@@ -68,6 +68,7 @@ Use a Live Server in VSCode or simply load up the HTML file to run the app.
 - Improving result speed
 - Fixing issues
 - Making the app more user friendly
+- Custom upload & Search History
 
 ## Known Limitations
 - Currently performs significantly better in North America
