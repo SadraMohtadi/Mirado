@@ -61,7 +61,11 @@ py imageAnalyzer.py
 
 ### 5. Open the app
 
-Use a Live Server in VSCode or simply load up the HTML file to run the app.
+Use a Live Server in VSCode or simply open the HTML file to run the app.
+
+### 6. Change the AI Server parameter
+
+On the bottom of the app, tap on NOT CONFIGURED and put in the IP address provided by the Python code after running it.
 
 ## Roadmap
 - Improving result accuracy
