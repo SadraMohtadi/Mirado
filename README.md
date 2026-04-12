@@ -29,41 +29,35 @@ git clone https://github.com/sadramohtadi/mirado.git
 cd mirado
 ```
 
-### 2. Install Python dependencies
-
-```bash
-pip install -r requirements.txt
-```
-
-### 3. Configure your API key
-
+### 2. Configure your API key
+x
 Open `scripts/config.js` and replace the placeholder with your SerpAPI key:
 
 ```javascript
 const SERP_API = '<YOUR_SERP_API_KEY>';
 ```
 
-### 4. Start the AI servers
+### 3. Start the AI servers
 
 Navigate to the `scripts/` folder and run either or both depending on which features you need:
 
 **Product summarization:**
 ```bash
-py server.py
+py HTTPAISummarry.py
 ```
 
 **Image analysis:**
 ```bash
-py imageAnalyzer.py
+py HTTPimageAnalyzer.py
 ```
-
+> There's a HTTP and HTTPS version of these codes. You can run either one depending on your browser.<br>
 > Both servers can run simultaneously for the full experience.
 
-### 5. Open the app
+### 4. Open the app
 
 Use a Live Server in VSCode or simply open the HTML file to run the app.
 
-### 6. Change the AI Server parameter
+### 5. Change the AI Server parameter
 
 On the bottom of the app, tap on NOT CONFIGURED and put in the IP address provided by the Python code after running it.
 
