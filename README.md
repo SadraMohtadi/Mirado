@@ -1,4 +1,4 @@
-# 🛍️ Mirado 0.6 - OSS 
+# 🛍️ Mirado 0.6.3 - OSS 
 
 Mirado lets users photograph any product to instantly get an AI-powered summary and discover where to buy it.
 
@@ -12,7 +12,7 @@ Mirado lets users photograph any product to instantly get an AI-powered summary 
 - **Image Recognition** — Take a picture of any product and Mirado identifies it
 - **AI Summaries** — Get a concise, intelligent breakdown of the product
 - **Purchase Links** — Find out where to buy it, powered by SerpAPI
-- **Useful Libraries** — Mirado has a lot of libraries that are made from scratch, such ```quoteBubble.js```, ```themes.js```, or ```inAppNotifications.js```
+- **Useful Libraries** — Mirado has a lot of libraries that are made from scratch, such as ```quoteBubble.js```, ```themes.js```, or ```inAppNotifications.js```
 
 ## Prerequisites
 
