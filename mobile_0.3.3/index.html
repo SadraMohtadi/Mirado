@@ -1,0 +1,786 @@
+<!-- 
+    Copyright 2026 Sadra Mohtadi
+
+    Licensed under the Apache License, Version 2.0
+    http://www.apache.org/licenses/LICENSE-2.0
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="settings.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://kit.fontawesome.com/ea5fbf8ec0.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+
+</head>
+<body>
+    <!-- Load external scripts -->
+    <script src="scripts/inAppNotifications.js"></script>   
+    <script src="scripts/createEventListeners.js"></script>
+    <script src="scripts/quoteBubble.js"></script>
+    <script src="scripts/settings.js"></script>
+    <script src="scripts/search.js"></script>
+    <script src="scripts/objectDetection.js"></script>
+    <script src="scripts/preferenceEngine.js"></script>
+    <script src="scripts/config.js"></script>
+    <script src="scripts/themes.js"></script>
+
+    <!-- Iniate external scripts -->
+    <script>
+        const notification = () => new NotificationSystem();
+        const notify = notification(); // Create a single instance to use
+    </script>
+
+        <div class="dynamic-island"></div>
+        <div class="content">
+            <header style="display: flex;"> 
+                <i id="settings" aria-hidden="true" class="fa fa-gear"></i>
+                <h3 id="logo">Mirado</h3>
+                <i id="account" aria-hidden="true" class="fa fa-user" onclick="quoteBubble().create(this, `This isn't available in this version!`, 100, 50, -30, 0, 'bottom')"></i>
+            </header>
+            <div class="searchOptions" style="display: flex;">
+                <div class="feedControl">
+                    <div id="objectDetection" class="selection selected">
+                        <i class="fa-solid fa-object-group"></i>
+                    </div>
+                    <div id="cameraColorCorrection" class="selection selected">
+                        <i class="fa-solid fa-eye-dropper"></i>
+                    </div>
+                    <div id="flipCamera" class="selection button">
+                        <i class="fa-solid fa-camera-rotate"></i>
+                    </div>
+                </div>
+                <video id="cameraPreview" autoplay playsinline style="position: absolute; opacity: 0; pointer-events: none;"></video>
+                <canvas id="detectionCanvas" style="width: 100%; height: auto; max-height: 900px; display: block; object-fit: contain;"></canvas>
+
+                <div id="preview-container" style="display: none !important;">
+                    <canvas id="preview-canvas"></canvas>
+                </div>
+                <div class="row1">
+                    <button id="findWithPic"><i aria-hidden="true" class="fa fa-camera"></i> Find</button>
+                </div>
+                <div class="row2">
+                    <button><i aria-hidden="true" class="fa fa-clock"></i> History</button>
+                    <button><i aria-hidden="true" class="fa fa-upload"></i> Upload</button>
+                </div>
+            </div>
+            <div class="searchResults" style="display: none;">
+                <div class="resultList normal" style="display: none;">
+                    <div class="result" id="hide"><div class="line"></div></div>
+                    <div class="result" style="display: none;">
+                        <div class="shortInfo">
+                            <img src="./assets/images/81jtPRZHYzL._AC_SL1500_.jpg" alt="item-preview" id="preview">
+                            <div class="moreInfo">
+                               <p> <span id="bestResult"><i class="fa-solid fa-ranking-star"></i> Best result</span>GDL Rotary Cheese Grater<span id="source">From Amazon.ca</span></p>
+                            </div>
+                            <button>30$CA<br><span>BUY</span></button>
+                        </div >
+                        <div class="longInfo">
+                            <div class="dynamicInfo">
+                                <div class="infoBox">
+                                    <div class="title">
+                                        <p><i style="font-size: calc(11 * var(--vhUnit)); color: #04243d;" class="fa-solid fa fa-layer-group" aria-hidden="true"></i> Category</p>
+                                    </div>
+                                    <div class="value">
+                                        <p>
+                                            Kitchen Tools
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="infoBox">
+                                    <div class="title">
+                                        <p><i style="font-size: calc(11 * var(--vhUnit)); color: #04243d;" class="fa-solid fa fa-layer-group" aria-hidden="true"></i> Category</p>
+                                    </div>
+                                    <div class="value">
+                                        <p>
+                                            Kitchen Tools
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="infoBox">
+                                    <div class="title">
+                                        <p><i style="font-size: calc(11 * var(--vhUnit)); color: #04243d;" class="fa-solid fa fa-lightbulb-alt" aria-hidden="true"></i> Category</p>
+                                    </div>
+                                    <div class="value">
+                                        <p>
+                                            Kitchen Tools
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="infoBox">
+                                    <div class="title">
+                                        <p><i style="font-size: calc(11 * var(--vhUnit)); color: #04243d;" class="fa-solid fa fa-layer-group" aria-hidden="true"></i> Category</p>
+                                    </div>
+                                    <div class="value">
+                                        <p>
+                                            Kitchen Tools
+                                        </p>
+                                    </div>
+                                </div>
+                                                                <div class="infoBox">
+                                    <div class="title">
+                                        <p><i style="font-size: calc(11 * var(--vhUnit)); color: #04243d;" class="fa-solid fa fa-layer-group" aria-hidden="true"></i> Category</p>
+                                    </div>
+                                    <div class="value">
+                                        <p>
+                                            Kitchen Tools
+                                        </p>
+                                    </div>
+                                </div>
+                                                                <div class="infoBox">
+                                    <div class="title">
+                                        <p><i style="font-size: calc(11 * var(--vhUnit)); color: #04243d;" class="fa-solid fa fa-layer-group" aria-hidden="true"></i> Category</p>
+                                    </div>
+                                    <div class="value">
+                                        <p>
+                                            Kitchen Tools
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="prosAndCons">
+                                <div class="title">
+                                    <p><i style="font-size: calc(9 * var(--vhUnit)); color: #04243d;" class="fa-solid fa fa-plus-minus" aria-hidden="true"></i> Pros & cons</p>
+                                </div>
+                                <div class="value">
+                                    <p><i class="fa-regular fa-face-frown"></i> Negative</p>
+                                    <p><i class="fa-regular fa-face-smile"></i> Positive</p>
+                                    <p><i class="fa-regular fa-face-meh"></i> Neutral</p>
+                                </div>
+                            </div>
+                            <p id="ai_warning">Dyanmic Results may not be 100% accurate.</p>
+                        </div>
+                        <button id="viewMore"><i class="fa fa-angle-double-up" aria-hidden="true"></i> View less</button>
+                    </div>
+                    <p id="errorText"><i class="fa-solid fa-circle-exclamation" id="errorIcon"> </i> We couldn't find any results!</p>
+                    <div class="fix proper_picture">
+                        <img src="assets/images/incorrect_picture.png">
+                        <img src="assets/images/correct_picture_1.png">
+                        <img src="assets/images/correct_picture_2.png">
+                    </div>
+                    <p>Try taking a picture like this!</p>
+                    <p class="noMore" style="display: none;">and that's it...<br>(1 result in 3.21s)</p>
+                </div>
+                <div class="resultList thrift" style="display: none;">
+                    <div class="result" id="hide"><div class="line"></div></div>
+                    <div class="result">
+                        <div class="shortInfo"> 
+                            <img src="assets/images/81jtPRZHYzL._AC_SL1500_.jpg">
+                            <p><span id="thriftBadge"><i class="fa-solid fa-chart-simple"></i> Thrift</span><br>Decent condition GDL Manual Cheese Grater</p>
+                        </div>
+                        <div id="chartTarget">
+
+                        </div>
+                        <div class="sources">
+                            <div class="source">
+                                <img src="assets/images/81jtPRZHYzL._AC_SL1500_.jpg">
+                                <p>
+                                    Cheese grater ultimate pro max v3, 300g
+                                    <br>
+                                    <span id="from">From eBay</span>
+                                </p>
+                                <button>
+                                    $19<br>BUY
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="account" style="display: none;">
+                <div class="option" id="main">
+                    <p>Main</p>
+                </div>
+                <div class="option" id="subscription">
+                    <i class="fa-solid fa-crown"></i>
+                    <h1>Upgrade</h1>
+                    <i class="fa fa-arrow-right"></i>
+                </div>
+                <div class="option" id="payment">
+                    <i class="fa fa-money"></i>
+                    <h1>Payment</h1>
+                    <i class="fa fa-arrow-right"></i>
+                </div>
+                <div class="option" id="sign_out">
+                    <i class="fa fa-sign-out"></i>
+                    <h1>Sign Out</h1>
+                </div>
+                <!-- <div class="bottom">
+                    <p>
+                        Made by Sadra Mohtadi<br>
+                        © 2026 All rights reserved<br>
+                        V1.0 - <a href="/terms-of-service/en/" target="_blank">Terms of Service</a> • <a href="youtube.com">Privacy Policy</a>
+                    </p>
+                </div> -->
+            </div>
+            <div class="settings" style="display: none;">
+                <div class="engineSettings" style="display: none;">
+                    <h2><span id="back" onclick="settings().engineSettings().hide()"><i class="fa-solid fa-arrow-left"></i> Back</span> Search options</h2>
+                    <div class="section resultPrioritizer">
+                        <h3>Prioritize results</h3>
+                        <p>Change the factors that are the most important to you.</p>
+                        <div id="priorityList">
+                            <div class="priority-item" draggable="true" data-index="0">Price</div>
+                            <div class="priority-item" draggable="true" data-index="1">Ratings</div>
+                            <div class="priority-item" draggable="true" data-index="2">Source</div>
+                        </div>
+                    </div>
+                    <div class="section features">
+                        <h3>Features</h3>
+                        <p>Changes made here may change the time a response takes.</p>
+                        <div class="option-group">
+                            <label><input type="checkbox" value="sortResults"> Sort results</label>
+                            <label><input type="checkbox" value="aiSummary"> Create an AI summary</label>
+                            <label><input type="checkbox" value="aiImageAnalyzer"> Analyze product</label>
+                            <label><input type="checkbox" value="autoCrop"> Auto Crop</label>
+                        </div>
+                    </div>
+                    <div class="section searchMode">
+                        <h3>Mode</h3>
+                        <p>This changes the search engine used to display results. Different engines give different results.</p>
+                        <div class="option-group">
+                            <label><input type="radio" name="mode" value="normal"> Normal mode</label>
+                            <label><input type="radio" name="mode" value="thrift"> Thrift mode</label>
+                        </div>
+                    </div>
+                    <div class="section preferencePattern">
+                        <h3>Result preferences</h3>
+                        <p>Below is your result preference pattern, don't worry, you don't need to do anything with it. It just for you to see and confirm.</p>
+                        <p class="pattern">abcdefghijklmnopqrstuvwxyz</p>
+                        <button id="resetPattern"><i class="fa fa-arrows-rotate"></i> Reset preferences</button>
+                        <button id="resetPattern"><i class="fa fa-trash"></i> Clear history</button>
+                    </div>
+                </div>
+                <div class="option" id="engine_settings" onclick="settings().engineSettings().show()">
+                    <i class="fa-brands fa-searchengin"></i>
+                    <h1>Search options</h1>
+                    <i class="fa fa-arrow-right"></i>
+                </div>
+                <div class="appearance" style="display: none;">
+                    <h2><span id="back" onclick="settings().appearance().hide()"><i class="fa-solid fa-arrow-left"></i> Back</span> Appearance</h2>
+
+                    <div class="section themeSelection">
+                        <div class="themePreview">
+                            <img src="assets/images/theme_darkmode.png">
+                            <label><input type="radio" name="themeSelect" id="dark_mode"> Dark Mode</label>
+                        </div>
+                        <div class="themePreview">
+                            <img src="assets/images/theme_default.png">
+                            <label><input type="radio" name="themeSelect" id="default"> Default</label>
+                        </div>
+                        <div class="themePreview">
+                            <img src="assets/images/theme_lightmode.png">
+                            <label><input type="radio" name="themeSelect" id="light_mode"> Light mode</label>
+                        </div>
+                    </div>
+
+                    <div class="section colorBlindness">
+                        
+                    </div>
+
+                    <div class="section highContrast">
+
+                    </div>
+                </div>
+                <div class="option" id="appearance" onclick="settings().appearance().show()">
+                    <i class="fa-solid fa-eye"></i>
+                    <h1>Appearance</h1>
+                    <i class="fa fa-arrow-right"></i>
+                </div>
+                <div class="option" id="privacy_security">
+                    <i class="fa-solid fa-lock"></i>
+                    <h1>Privacy & Security</h1>
+                    <i class="fa fa-arrow-right"></i>
+                </div>
+                <div class="option" id="support">
+                    <i class="fa-solid fas fa-headphones"></i>
+                    <h1>Help & Support</h1>
+                    <i class="fa fa-arrow-right"></i>
+                </div>  
+                <div class="about" style="display: none;">
+                    <h2><span id="back" onclick="settings().about().hide()"><i class="fa-solid fa-arrow-left"></i> Back</span> About</h2>
+
+                    <div class="section">
+                        <h1>Credits</h1>
+                        <p>Made by Sadra Mohtadi.<br>
+                        Huge thank you to all the suporters and contributers on GitHub.</p>
+
+                        <p>
+                          Powered by <a href="https://serpapi.com" target="_blank">SerpAPI</a> for APIs.<br>
+                          Powered by <a href="https://www.ip2location.com" target="_blank">ip2location</a> for IP geolocation services.
+                        </p>
+                        
+                        <div class="seperator"></div>
+
+                        <h1>Contact us</h1>
+                        <a href="support@mirado.app">support@mirado.app</a>
+                        <br>
+                        <a href="https://mirado.app">www.mirado.app</a>
+                        <div class="seperator" style="margin-top: 0.5em;"></div>
+                        <h1>Legal</h1>
+                        <a href="legal/terms_of_service">Terms of Service</a>
+                        <br>
+                        <a href="legal/privacy_policy">Privacy Policy</a>
+                        <div class="seperator" style="margin-top: 0.5em;"></div>
+                        <h1>Version</h1>
+                        <p>
+                            Version: BETA0.3.3<br>
+                            Build: 20260412<br>
+                        </p>
+                    </div>
+                </div>
+                <div class="option" id="about" onclick="settings().about().show()">
+                    <i class="fa-solid fa-circle-question"></i>
+                    <h1>About</h1>
+                    <i class="fa fa-arrow-right"></i>
+                </div>
+                <div class="option" id="donate">
+                    <i class="fa-solid fa-gift"></i>
+                    <h1>Support us</h1>
+                </div>
+                <!-- Post-release -->
+                <!-- <div class="bottom" style="display: none;">
+                    <p>
+                        Made by Sadra Mohtadi<br>
+                        © 2026 All rights reserved<br>
+                        BETA0.2 - <a href="/terms-of-service/en/" target="_blank">Terms of Service</a> • <a href="youtube.com">Privacy Policy</a>
+                    </p>
+                </div> -->
+            </div>
+
+            <div class="bottom">
+                <p>
+                    VERSION: BETA0.3.3 - BUILD: 20260412 - <a href="https://github.com/SadraMohtadi/Mirado" style="color: #3022c0;">GITHUB REP</a><br>
+                    AI SERVER: <span id ="AIServerStatus" onclick="quoteBubble().create(this, `Loading!`)">????</span> <span id="AIServerAction">(CLICK TO CHANGE)</span><br>
+                    <span style="text-decoration: underline; cursor: pointer;" onclick="localStorage.removeItem('AIServerAddress'); localStorage.removeItem('searchSettings'); location.reload();">[HARD RESET]</span> <span style="text-decoration: underline; cursor: pointer;" onclick="location.reload()">[RESTART]</span>
+                </p>
+            </div>
+        </div>
+
+    <!-- Made with <3 by Sadra Mohtadi -->
+    <!-- GitHub Rep -->
+    <!-- https://github.com/SadraMohtadi/Mirado -->
+    <!-- Contant me at: -->
+    <!-- sadra@sadramohtadi.ir -->
+
+    <!-- INITAL CHECKS / IMPORTANT VALUES / SANITY CHECKS -->
+    <script>
+    const AIServerStatusSpan = document.getElementById("AIServerStatus");
+    const AIServerActionSpan = document.getElementById("AIServerAction");
+
+    // Simple Javascript ENUM
+    let AIServerStatus = Object.freeze({
+        CONNECTED: 0,
+        CONNECTING: 1,
+        DISCONNECTED: 2,
+        FAILED: 3,
+        CONFIGURED: 4,
+        NOT_CONFIGURED: 5
+    });
+
+    let currentAIServerStatus = '';
+
+    // Temporary code, will be removed in the final version.
+    function isValidLocalIP(ip) {
+        return ip && ip.startsWith('192.168' || '10.' || '172.16') && ip.trim() !== '';
+    }
+
+    async function initialAIChecks(){
+        const searchSettingsLocalStorage = localStorage.getItem('searchSettings');
+        const AIServerSettingsLocalStorage = localStorage.getItem('AIServerAddress');
+
+        if (!isValidLocalIP(AIServerSettingsLocalStorage) || AIServerSettingsLocalStorage === 'reset'){
+            localStorage.setItem('AIServerAddress', '');
+            currentAIServerStatus = AIServerStatus.NOT_CONFIGURED;
+        }
+
+        if (!searchSettingsLocalStorage){
+            if (!AIServerSettingsLocalStorage){
+                localStorage.setItem('searchSettings', '{"priority":["price","source","ratings"],"weights":{"price":0.5,"ratings":0.3333,"source":0.1667},"features":["sortResults", "autoCrop"],"mode":"normal"}');
+            }else{
+                localStorage.setItem('searchSettings', '{"priority":["price","source","ratings"],"weights":{"price":0.5,"source":0.3333,"ratings":0.1667},"features":["sortResults","aiSummary","autoCrop"],"mode":"normal"}');
+            }
+        }
+
+        // Temporary code, will be removed in the final version.
+        const currentAIServer = localStorage.getItem('AIServerAddress');
+
+        if (!currentAIServer || currentAIServer === ''){
+            AIServerStatusSpan.innerText = 'NOT CONFIGURED';
+            AIServerActionSpan.innerText = '(CLICK TO CONFIGURE)';
+            AIServerStatusSpan.style.textDecoration = 'underline';
+            AIServerStatusSpan.style.fontStyle = 'normal';
+             AIServerStatusSpan.style.fontWeight = 'regular';
+            AIServerStatusSpan.style.color = '#ff1e00';
+            currentAIServerStatus = AIServerStatus.NOT_CONFIGURED;
+        }else{
+            AIServerStatusSpan.innerText = 'CONNECTING...';
+            AIServerActionSpan.innerText = `(${currentAIServer})`;
+            AIServerStatusSpan.style.fontStyle = 'italic';
+            AIServerStatusSpan.style.color = '#ffe08c';
+            currentAIServerStatus = AIServerStatus.CONNECTING; 
+
+            const AIServerConnectionStatus = await search.checkAIServerConnection(currentAIServer);
+
+            if (AIServerConnectionStatus === 200){
+                AIServerStatusSpan.innerText = 'CONNECTED';
+                AIServerActionSpan.innerText = `(${currentAIServer})`;
+                AIServerStatusSpan.style.textDecoration = 'underline';
+                AIServerStatusSpan.style.fontWeight = 'bold';
+                AIServerStatusSpan.style.fontStyle = 'normal';
+                AIServerStatusSpan.style.color = '#00a621';
+                currentAIServerStatus = AIServerStatus.CONNECTED;
+            }else{
+                AIServerStatusSpan.innerText = 'FAILED';
+                AIServerActionSpan.innerText = `(TAP TO SEE WHY)`;
+                currentAIServerStatus = AIServerStatus.FAILED;
+
+                AIServerActionSpan.addEventListener('click', () => quoteBubble().create(AIServerActionSpan, AIServerConnectionStatus));
+                AIServerStatusSpan.style.textDecoration = 'underline';
+                AIServerStatusSpan.style.color = '#ff0000';
+            }
+        }
+
+        AIServerStatusSpan.addEventListener('click', () => {
+            const input = prompt("What's the local server IP? (Provided by the Python script / The local IP of the device running the code).\n\nSubmit 'reset' to erase previous configurations.");
+            localStorage.setItem('AIServerAddress', input || localStorage.getItem('AIServerAddress'));
+            initialAIChecks();
+        });
+    }
+
+    const themeStyle = localStorage.getItem('appearanceSettings-theme');
+
+    if (themeStyle){
+        if (themeStyle === 'default'){
+            theme().reset();
+        }else{
+            theme().apply(themes[themeStyle])        
+        }
+    }else{
+        localStorage.setItem('appearanceSettings-theme', 'default');
+    }
+
+
+    initialAIChecks();
+    </script>
+
+    <!-- Load up camera feed + Capture button + Freeze and switch -->
+  <script>
+    const mockPreviewCanvas = document.createElement('canvas');
+    const mockPreviewContainer = document.createElement('div');
+    
+    // Override getElementById JUST for the tracking class requirements
+    const originalGetId = document.getElementById;
+    document.getElementById = function(id) {
+        if (id === 'preview-canvas') return mockPreviewCanvas;
+        if (id === 'preview-container') return mockPreviewContainer;
+        return originalGetId.call(document, id);
+    };
+
+    // Initialize
+    const video = document.getElementById("cameraPreview");
+    const captureBtn = document.getElementById("findWithPic");
+    const detectionCanvas = document.getElementById("detectionCanvas");
+
+    let objectDetectionEnabled = localStorage.getItem('cameraSettings-objectDetection') !== 'false';
+    let ispFilterEnabled = localStorage.getItem('cameraSettings-ispFilter') !== 'false';
+
+    document.querySelector('.content .searchOptions .feedControl #objectDetection')?.classList.toggle('selected', objectDetectionEnabled);
+    document.querySelector('.content .searchOptions .feedControl #cameraColorCorrection')?.classList.toggle('selected', ispFilterEnabled);
+
+
+    document.addEventListener('DOMContentLoaded', (e) => {
+        document.querySelectorAll('.content .searchOptions .feedControl .selection').forEach((e) => {
+            e.addEventListener('click', () => {
+                // Disable
+                if (!e.classList.contains('selected')){
+                    e.classList.remove('selected');
+                    if (e.id === "objectDetection"){
+                        objectDetectionEnabled = false;
+                        localStorage.setItem('cameraSettings-objectDetection', 'false');
+                    }else if (e.id === "cameraColorCorrection"){
+                        ispFilterEnabled = false;
+                        localStorage.setItem('cameraSettings-ispFilter', 'false');
+                    }
+                }else{
+                    // Enable
+                    e.classList.add('selected');
+                    if (e.id === "objectDetection"){
+                        objectDetectionEnabled = true;
+                        localStorage.setItem('cameraSettings-objectDetection', 'true');
+                    }else if (e.id === "cameraColorCorrection"){
+                        ispFilterEnabled = true;
+                        localStorage.setItem('cameraSettings-ispFilter', 'true');
+                    }
+                }
+            })
+        })
+    });
+    
+    // ISP (color correction) and object tracking modules
+    const isp = new ISP();
+    const detector = new ObjectDetection(detectionCanvas);
+
+    // Camera navigator
+    document.querySelectorAll('.content .searchOptions .feedControl .selection:not(.button)').forEach((e) => {
+        e.addEventListener('click', () => {
+            const isSelecting = !e.classList.contains('selected');
+
+            if (isSelecting){
+                if (e.id === 'cameraColorCorrection'){
+                    ispFilterEnabled = true;
+                } else if(e.id === 'objectDetection'){
+                    objectDetectionEnabled = true;
+                }
+                e.classList.add('selected');
+            } else {
+                if (e.id === 'cameraColorCorrection'){
+                    ispFilterEnabled = false;
+                } else if(e.id === 'objectDetection'){
+                    objectDetectionEnabled = false;
+                    detector.cancel();
+                }
+                e.classList.remove('selected');
+            }
+        });
+    });
+
+    function aiLoop() {
+        if (isFrozen) return; // don't loop while frozen
+
+        if (video.readyState >= 2) {
+            const filterString = ispFilterEnabled ? isp.apply(video, detectionCanvas) : 'none';
+            detector.sync(video, filterString);
+
+            if (objectDetectionEnabled) {
+                detector.detect();
+                detector.render();
+            }
+        }
+
+        animationFrameId = requestAnimationFrame(aiLoop);
+    }
+
+    // Interaction Logic 
+    detectionCanvas.addEventListener('pointerdown', (e) => {
+        if (!objectDetectionEnabled) return;
+
+        const rect = detectionCanvas.getBoundingClientRect();
+        // Calc coordinates based on internal resolution vs display size
+        const scaleX = detectionCanvas.width / rect.width;
+        const scaleY = detectionCanvas.height / rect.height;
+        const x = (e.clientX - rect.left) * scaleX;
+        const y = (e.clientY - rect.top) * scaleY;
+        
+        detector.lock(x, y);
+    });
+
+    // Freeze camera
+    let isFrozen = false;
+    let frozenImageData = null;
+    let animationFrameId = null;
+
+    function freezeCamera() {
+        if (isFrozen) {
+            // Unfreeze
+            isFrozen = false;
+            frozenImageData = null;
+            aiLoop();
+        } else {
+            // Freeze
+            const ctx = detectionCanvas.getContext('2d');
+            frozenImageData = ctx.getImageData(0, 0, detectionCanvas.width, detectionCanvas.height);
+            isFrozen = true;
+            if (animationFrameId) {
+                cancelAnimationFrame(animationFrameId);
+                animationFrameId = null;
+            }
+            // Re-draw the frozen frame so it stays visible
+            ctx.putImageData(frozenImageData, 0, 0);
+        }
+    }
+
+    // Switch camera
+    let availableCameras = [];
+    let currentCameraIndex = 0;
+    let currentStream = null;
+
+    async function switchCamera() {
+        // Enumerate devices once
+        if (availableCameras.length === 0) {
+            const devices = await navigator.mediaDevices.enumerateDevices();
+            availableCameras = devices.filter(d => d.kind === 'videoinput');
+
+            if (availableCameras.length === 0) {
+                console.warn('No video input devices found.');
+                return;
+            }
+        }
+
+        // Stop the current stream before switching
+        if (currentStream) {
+            freezeCamera();
+            currentStream.getTracks().forEach(track => track.stop());
+            currentStream = null;
+        }
+
+        // Advance to the next camera 
+        currentCameraIndex = (currentCameraIndex + 1) % availableCameras.length;
+        const nextDevice = availableCameras[currentCameraIndex];
+
+        try {
+            const stream = await navigator.mediaDevices.getUserMedia({
+                video: {
+                    deviceId: { exact: nextDevice.deviceId },
+                    width:  { ideal: 700 },
+                    height: { ideal: 900 }
+                },
+                audio: false
+            });
+
+            currentStream = stream;
+            video.srcObject = stream;
+
+            video.onloadeddata = () => {
+                detectionCanvas.width  = video.videoWidth;
+                detectionCanvas.height = video.videoHeight;
+                detectionCanvas.style.aspectRatio = `${video.videoWidth} / ${video.videoHeight}`;
+                video.play();
+
+                // Resume the AI loop if we weren't frozen
+                freezeCamera();
+                if (!isFrozen) aiLoop();
+            };
+        } catch (err) {
+            console.error('Failed to switch camera:', err);
+        }
+    }
+
+    async function startCamera() {
+        try {
+            const stream = await navigator.mediaDevices.getUserMedia({
+                video: {
+                    width: { ideal: 700 },
+                    height: { ideal: 900 },
+                    facingMode: "environment"
+                },
+                audio: false
+            });
+
+            currentStream = stream; 
+            video.srcObject = stream;
+
+            video.onloadeddata = () => {
+                detectionCanvas.width = video.videoWidth;
+                detectionCanvas.height = video.videoHeight;
+                
+                // Enforce aspect ratio on the display element
+                detectionCanvas.style.aspectRatio = `${video.videoWidth} / ${video.videoHeight}`;
+                
+                video.play();
+                aiLoop();
+            };
+        } catch (e) {
+            console.error("Camera Error:", e);
+        }
+    }
+
+    captureBtn.addEventListener("click", async () => {
+        if (video.readyState < 2) return;
+    
+        const searchSettings = JSON.parse(localStorage.getItem('searchSettings'));
+        freezeCamera();
+        search.progress().begin(searchSettings.mode);
+    
+        const base64Image = detectionCanvas.toDataURL("image/jpeg", 0.92);
+    
+        let analyzePromise = '';
+        if (isValidLocalIP(localStorage.getItem('AIServerAddress')) && searchSettings?.features?.includes('aiImageAnalyzer')) {
+            search.progress().update(6);
+            analyzePromise = search.analyzeImage(base64Image, localStorage.getItem('AIServerAddress'));
+        }
+    
+        const formData = new FormData();
+        formData.append("image", base64Image);
+        formData.append("autoCrop", searchSettings.features.includes('autoCrop'));
+        formData.append("api_key", btoa(SERP_API))
+    
+        const xhr = new XMLHttpRequest();
+        xhr.open("POST", "https://df.sadramohtadi.ir/searchByImage.php", true);
+        xhr.upload.onprogress = () => search.progress().update(1);
+        xhr.onload = async () => {
+            const analyzedKeywords = (await analyzePromise).split(';') || [];
+            if (xhr.status >= 200 && xhr.status < 300) {
+                const data = JSON.parse(xhr.responseText);
+                searchSettings.mode === 'thrift'
+                    ? search.parseThriftData(data, analyzedKeywords)
+                    : search.parseData(data, analyzedKeywords);
+            } else if (xhr.status === 500) {
+                await search.progress().hide(searchSettings.mode);
+
+                document.querySelector(`.content .searchResults .resultList.${searchSettings.mode}`).innerHTML = `
+                    <div class="result" id="hide"><div class="line"></div></div>
+                    <p id="errorText" style="opacity: 0;"><i class="fa-solid fa-circle-exclamation" id="errorIcon"> </i> We couldn't find any results!</p>
+                    <div class="fix proper_picture" style="opacity: 0;">
+                        <img src="assets/images/incorrect_picture.png">
+                        <img src="assets/images/correct_picture_1.png">
+                        <img src="assets/images/correct_picture_2.png">
+                    </div>
+                    <p id="picture_tip" style="opacity: 0;">Try taking a picture like this!</p>
+                    `
+                    ;
+                    
+                implementEventListener.searchResultBar(searchSettings.mode);
+
+                document.querySelector('.content .searchResults .resultList #errorText').style.animation = 'fade-in 0.3s ease-in forwards';
+                document.querySelector('.content .searchResults .resultList .fix.proper_picture').style.animation = 'fade-in 0.3s ease-in forwards';
+                document.querySelector('.content .searchResults .resultList #picture_tip').style.animation = 'fade-in 0.3s ease-in forwards';
+            }
+        };
+    
+        xhr.send(formData);
+    });
+
+    // Draw placeholder image onto canvas until camera loads
+    const placeholder = new Image();
+    placeholder.src = 'assets/images/camera-preview-default.png';
+    placeholder.onload = () => {
+        detectionCanvas.width = placeholder.naturalWidth;
+        detectionCanvas.height = placeholder.naturalHeight;
+        detectionCanvas.style.aspectRatio = `${placeholder.naturalWidth} / ${placeholder.naturalHeight}`;
+
+        const ctx = detectionCanvas.getContext('2d');
+        ctx.drawImage(placeholder, 0, 0, detectionCanvas.width, detectionCanvas.height);
+    };
+
+    startCamera();
+
+    document.querySelector('.content .searchOptions .feedControl #flipCamera').addEventListener('click', () => {
+        switchCamera();
+    });
+</script>
+
+    <script>
+        var openedMenu = '';
+
+        document.querySelector('.content header #settings').addEventListener('click', () => {
+            if (openedMenu === 'settings'){
+                document.querySelector('.content .searchResults').style.display = 'none';
+                document.querySelector('.content .searchOptions').style.display = 'flex';
+                document.querySelector('.content .settings').style.display = 'none';
+                openedMenu = '';
+            }else{
+                document.querySelector('.content .searchResults').style.display = 'none';
+                document.querySelector('.content .searchOptions').style.display = 'none';
+                document.querySelector('.content .settings').style.display = 'flex';
+                openedMenu = 'settings';
+            }
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,53 @@
+Return ONLY valid JSON. No explanations.
+
+Input:
+"GDL Rotary Cheese Grater Hand Crank - Upgraded Cheese Shredder with 4 Interchangeable Blades, Rotary Grater with Non-Slip Suction Base, Easy to Clean Kitchen Grater Slicer Grinder for Vegetable Nuts"
+
+Rules:
+
+Required fields (must always be present):
+
+summary (string)
+
+category (string)
+
+used_for (string)
+
+pros (array of short strings, 1–5 words)
+
+cons (array of short strings, 1–5 words)
+
+Optional additional fields:
+
+Add exactly enough extra fields so the total number of top-level fields is 7, 9, or 11.
+
+Each additional field must follow:
+
+"field_name": { "value": "Short Value", "icon": "fa-icon-name" }
+
+value: under 3 words
+
+icon: free Font Awesome icon name (omit fa-)
+
+Constraints:
+
+Field names under 3 words
+
+All fields are top-level
+
+JSON must be parsable by JavaScript
+
+No extra explanations, comments, or unknown values
+
+Output example (do not copy values):
+
+{
+  "summary": "Product Name",
+  "category": "Category",
+  "used_for": "Usage",
+  "pros": ["Pro 1", "Pro 2"],
+  "cons": ["Con 1", "Con 2"],
+  "field1": { "value": "Short Value", "icon": "fa-icon-name" },
+  "field2": { "value": "Short Value", "icon": "fa-icon-name" }
+  (and other fields if necessary)
+}
