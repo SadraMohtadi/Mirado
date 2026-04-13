@@ -6,7 +6,7 @@ http://www.apache.org/licenses/LICENSE-2.0
 */
 
 // MAKE SURE TO UPDATE THE FOLLOWING FOR THE APP TO FUNCTION
-const SERP_API = 'efc9469cda7d6d04864a3fa95c4bbbc4d7fd14cffce66b9896074d4c298ffa72';
+const SERP_API = '<YOUR_API_KEY_HERE>';
 
 function setCookie(cname, cvalue, exdays) {
     const d = new Date();
