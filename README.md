@@ -32,7 +32,12 @@ git clone https://github.com/sadramohtadi/mirado.git
 cd mirado
 ```
 
-### 2. Configure your API key
+### 2. Find the right version
+
+You can either head to the ```in_browser/``` or ```mobile_<version>/``` folder to run the app however you want.<br>
+The ```in_browser/``` is a ready to <b>develop</b> version of the code with a dev panel and a phone layout while ```mobile_<version>/``` is a ready to <b>export</b> version of the code to directly host on mobile devices.
+
+### 3. Configure your API key
 
 Open `scripts/config.js` and replace the placeholder with your SerpAPI key:
 
@@ -40,7 +45,7 @@ Open `scripts/config.js` and replace the placeholder with your SerpAPI key:
 const SERP_API = '<YOUR_SERP_API_KEY>';
 ```
 
-### 3. Start the AI servers
+### 4. Start the AI servers
 Navigate to the `scripts/` folder and run either or both depending on which features you need:
 
 **Product summarization:**
@@ -55,11 +60,11 @@ py HTTPimageAnalyzer.py
 > There's a HTTP and HTTPS version of these codes. You can run either one depending on your browser.<br>
 > Both servers can run simultaneously for the full experience.
 
-### 4. Open the app
+### 5. Open the app
 
 Use a Live Server in VSCode or simply open the HTML file to run the app.
 
-### 5. Change the AI Server parameter
+### 6. Change the AI Server parameter
 
 On the bottom of the app, tap on NOT CONFIGURED and put in the IP address provided by the Python code after running it.
 
