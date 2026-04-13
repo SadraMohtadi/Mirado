@@ -1,0 +1,312 @@
+/* 
+Copyright 2026 Sadra Mohtadi
+
+Licensed under the Apache License, Version 2.0
+http://www.apache.org/licenses/LICENSE-2.0
+*/
+
+/* All of .settings's CSS content's here for a slightly cleaner code */
+:root {
+  --base-width: 400;
+  --base-height: 620;
+  --vwUnit: calc(100vw / var(--base-width));
+  --vhUnit: calc(100vh / var(--base-height));
+}
+
+.settings{
+    position: relative;
+    width: 100%;
+    margin-top: 20%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.settings *{
+    user-select: none;
+}
+
+.settings .bottom{
+    left: 10%;
+    width: 80%;
+    height: 15%;
+    text-align: center;
+    color: var(--color-settings-info-text);
+}
+
+.settings #back{
+    color: var(--color-settings-back-link);
+    text-decoration: underline;
+}
+
+.settings .bottom a{
+    color: var(--color-settings-link);
+}
+
+.settings .option{
+    width: 80%;
+    height: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: row;
+
+    border-bottom: 1px solid var(--color-settings-divider);
+    padding-top: 7px;
+    padding-bottom: 7px;
+    font-size: 30px;
+
+    color: var(--color-settings-option-text);
+}
+
+.settings .option h1{
+    width: 75%;
+    text-align: left;
+    font-size: 25px;
+    color: var(--color-settings-option-text);
+}
+
+.settings .option i{
+    color: var(--color-settings-option-icon);
+}
+
+.settings #donate i{
+    color: var(--color-settings-donate-accent);
+}
+
+.settings #donate h1{
+    color: var(--color-settings-donate-accent);
+    width: calc(86%);
+}
+
+.settings .engineSettings {
+    height: 90%;
+    width: 90%;
+    flex-wrap: nowrap;
+    overflow-y: scroll;
+    overflow-x: visible;
+    scrollbar-width: none;
+}
+
+.settings .engineSettings::-webkit-scrollbar {
+    display: none;
+}
+
+.settings .engineSettings h2{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 5%;
+    color: var(--color-settings-option-text);
+}
+
+.settings .engineSettings .section{
+    margin-bottom: 25px;
+    color: var(--color-settings-option-text);
+}
+
+.settings .engineSettings .section h3{
+    font-size: calc(14 * var(--vhUnit));
+    margin: 0;
+    color: var(--color-settings-option-text);
+}
+
+.settings .engineSettings .section p{
+    margin: 0;
+    font-size: calc(8 * var(--vhUnit));
+    margin-bottom: 2px;
+    width: 100%;
+    color: var(--color-settings-desc-text);
+}
+
+.settings .engineSettings .section.preferencePattern{
+    height: 15%;
+}
+
+.settings .engineSettings .section.preferencePattern .pattern{
+    background-color: rgb(230, 230, 230);
+    color: rgb(51, 51, 51);
+    width: calc(98% - 14px);
+    padding: 7px;
+
+    border: 2px solid rgb(103, 103, 103);
+
+    border-radius: 0.3rem;
+    
+    margin: 0;
+
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.settings .engineSettings .section.preferencePattern button{
+    width: 100%;
+    height: 40%;
+    background-color: var(--color-btn-primary-bg-red);
+    color: var(--color-btn-primary-text-red);
+    font-size: 20px;
+    border: 2px solid var(--color-btn-primary-border-red);
+    border-radius: 1.3rem;
+    -webkit-box-shadow: 5px 5px 18px -3px rgba(0,0,0,0.52); 
+    box-shadow: 1px 1px 18px 3px rgba(0,0,0,0.11);
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.1s ease-out;
+
+    margin-top: 5px;
+}
+
+.settings .engineSettings .resultPrioritizer{
+    height: 25%;
+}
+
+.settings .engineSettings .resultPrioritizer #priorityList{
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    flex-direction: column;
+    height: 85%;
+}
+
+.settings .engineSettings .resultPrioritizer .priority-item {
+    background: var(--color-settings-priority-bg);
+    padding: calc(7 * var(--vhUnit));
+    border-radius: 10px;
+    cursor: grab;
+    transition: 0.2s ease;
+    width: 90%;
+    margin-left: 5px;
+}
+
+.settings .engineSettings .resultPrioritizer .priority-item.dragging {
+    opacity: 0.5;
+}
+
+.settings .engineSettings .features{
+    height: 20%;
+
+    display: flex;
+    align-items: baseline;
+    justify-content: space-around;
+    flex-direction: column;
+}
+
+.settings .engineSettings .option-group label{
+    display: block;
+    margin-left: 3px;
+}
+
+.settings .about{
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+    height: 90%;
+    width: 90%;
+}
+
+.settings .about h2{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 5%;
+}
+
+.settings .about .section{
+    position: relative;
+    height: 70%;
+    width: 100%;
+    display: block;
+    flex-direction: column;
+
+    font-size: calc(4 * var(--vwUnit));
+
+    gap: 10px;
+}
+
+.settings .about .section h1{
+    font-size: xx-large;
+    margin-top: 0.3em;
+}
+
+.settings .about .section p{
+    font-size: large;
+    width: 90%;
+    margin-left: 2.5%;
+}
+
+.settings .about .section a{
+    font-size: calc(4 * var(--vwUnit));
+    width: 90%;
+    margin-left: 2.5%;
+}
+
+.settings .about .section .seperator{
+    height: calc(2 * var(--vhUnit));
+    width: 100%;
+    background-color: var(--color-settings-separator);
+}
+
+.settings .appearance{
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+    height: 90%;
+    width: 90%;
+}
+
+.settings .appearance h2{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 5%;
+}
+
+.settings .appearance .section.themeSelection{
+    width: 100%;
+    height: 40%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+.settings .appearance .section.themeSelection .themePreview{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+
+    width: 30%;
+    height: 100%;
+
+
+}
+
+.settings .appearance .section.themeSelection .themePreview img{
+    height: 80%;
+    width: auto;
+
+    border-radius: 0.6rem;
+}
+
+.settings .appearance .section.themeSelection .themePreview label{
+    margin-top: 5px;
+
+    font-size: calc(10 * var(--vhUnit));
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    width: 100%;
+
+    color: var(--color-settings-text);
+}
+
+.settings .appearance .section.section.themeSelection .themePreview input{
+    transform: scale(1.1);
+}
