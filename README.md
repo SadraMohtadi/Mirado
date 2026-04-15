@@ -2,7 +2,8 @@
 Mirado lets users photograph any product to instantly get an AI-powered summary and discover where to buy it.
 <img src="readme_assets/app_demo1.jpg" width="25%" />
 <img src="readme_assets/app_demo2.png" width="25%" />
-<img src="readme_assets/app_demo3.png" width="25%" /><br>
+<img src="readme_assets/app_demo3.png" width="25%" />
+<video src="readme_assets/app_demo_video.mp4" width="25%"></video><br>
 
 
 ## Features
